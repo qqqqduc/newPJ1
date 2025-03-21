@@ -23,7 +23,10 @@ namespace newProject
         public void Start()
         {
             _cts = new CancellationTokenSource();
-            Run(_cts.Token);
+            Task.Run(() =>
+            {
+                Run(_cts.Token);
+            }, _cts.Token);
         }
 
         private void Run(CancellationToken token)
