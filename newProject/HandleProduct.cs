@@ -29,7 +29,7 @@ namespace newProject
             }, _cts.Token);
         }
 
-        private void Run(CancellationToken token)
+        private async Task Run(CancellationToken token)
         {
             while (!token.IsCancellationRequested)
             {
@@ -40,7 +40,7 @@ namespace newProject
                     while (true)
                     {
                         if (token.IsCancellationRequested) return;
-                        Thread.Sleep(1000);
+                        await Task.Delay(1000);
                     }
 
                     // AI xử lý
